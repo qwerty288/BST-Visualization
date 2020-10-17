@@ -2,7 +2,7 @@
 Objects of this class represent Scroll-Bars which are displayed on screen if their update() and display() functions are called. 
 The position of the Scroll-Bar (this.spos) can be accessed and then mapped onto another variable (the scale factor, and animation speed in this case)
 This class was acquired from https://processing.org/examples/scrollbar.html, and then modified to provide additional features. The comments that were
-included in this class by the author were removed, and the comments below reprents modifications made
+included in this class by the author were removed, and the comments below represent modifications made
 */
 class HScrollbar {
     int swidth, sheight;

@@ -1,4 +1,4 @@
-# bst-Visualization
+# bst-visualization
 Visualization of the insertion &amp; search algorithm of a Binary Tree.
 
 ## Functionality

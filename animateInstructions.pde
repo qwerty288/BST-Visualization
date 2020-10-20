@@ -68,7 +68,7 @@ class animateInstructions {
         text("Click for Help", 115, 133);
         fill(255);
         text("Use this slider to change the search animation-speed, and the slider below it to zoom out of the diagram", 480, 635);
-        text("This visualization was made by Prasanth Muthukalyani Sathish Babu (ID 1906781). Add an integer to get started", (width)/2, (5.9*height)/10);
+        text("This visualization was made by Prasanth Muthukalyani Sathish Babu. Add an integer to get started", (width)/2, (5.9*height)/10);
         scale(1/scale);
         //translate(xFactor, 0);
     }

@@ -38,7 +38,7 @@ class Node {
             image(shadow, xPosTemp - 47, yPosTemp - 45);
         }
         fill(0, 0, 0, 150);
-        textAlign(CENTER); //shrink if digits are 2much
+        textAlign(CENTER); 
         textFont(font2);
         //This code shrinks the nodekey text to fit inside the ellipse, if it's too large
         if (((this.nodeKey).toString()).length() > 6) {

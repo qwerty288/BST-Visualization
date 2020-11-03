@@ -80,13 +80,10 @@ class animatedHollowCircle {
         return min(max(val, minv), maxv);
     }
     //This function displays a Hollow Red Circle, and it's last-calculated position
-    void display() {
-        //This if-statement displays the text, when the 
-        if (    (((Math.abs(X-endX)) / (Math.abs(startX - endX))) < 0.2) || count == 0) {
+    void display() { 
+        if ((((Math.abs(X-endX)) / (Math.abs(startX - endX))) < 0.2) || count == 0) {
             displayText(count, true);
-        } else {
-            //displayText(count-1, false);
-        }
+        } 
         noFill();
         strokeWeight(4);
         if (pointArray[count+1] == null && foundNode == true) {
@@ -132,7 +129,7 @@ class animatedHollowCircle {
                      text("Node with key: " + keyFound + " found", 640, (((defaultScale+(defaultScale*binaryTree.maxDepth))+(5*textAscent()))*scale));
                  }
              } else if (pointArray[i] != null) {
-                 if (keyFound > pointArray[i].nodeKey) {//say why not found
+                 if (keyFound > pointArray[i].nodeKey) {
                      text(keyFound + " > " + pointArray[i].nodeKey + " & no right child exists. Search Failed", 640, (((defaultScale+(defaultScale*binaryTree.maxDepth))+(5*textAscent()))*scale));
                  } else {
                      text(keyFound + " < " + pointArray[i].nodeKey + " & no left child exists. Search Failed", 640, (((defaultScale+(defaultScale*binaryTree.maxDepth))+(5*textAscent()))*scale));

@@ -7,7 +7,6 @@ class Node {
     boolean directionFrom; //false = left of root node, true = right of root node
     Integer nodeKey = null;
     Node(Integer xP, Integer yP, Integer nK, boolean dF, int pNN) {
-        //This constructor allows for the appropriate variables to be initialized
         xPos = xP;
         yPos = yP;
         previousXPos = xPos;

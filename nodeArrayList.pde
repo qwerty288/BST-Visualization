@@ -1,5 +1,5 @@
 /*
-An object of this class represents an arrayList data-structure, which can be used to store 'Node' objects. This class was adapted from previous work on datastructure
+An object of this class represents an arrayList data-structure, which can be used to store 'Node' objects. 
 */
 class nodeArrayList {
     Node[] array;

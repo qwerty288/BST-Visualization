@@ -1,7 +1,7 @@
 /*
 An object of this class represents a Binary-Tree data-structure. Insertion and Search operations can be performed on the structure. 
 In addition, functions to display the Binary-Tree containd in the 'binaryTree' object are also present. Rather than using an implementation
-like: https://www.geeksforgeeks.org/binary-tree-set-1-introduction/, I used my arrayList implementation (as documented in the report)
+like: https://www.geeksforgeeks.org/binary-tree-set-1-introduction/, I used my arrayList implementation 
 This was to make implementing checkXIntersection easier and more efficient, as the complexity of searching for a node with a 
 given number was reduced from O(n) to O(1). In addition, modifying induvidual nodes was also far easier to do.
 An arrayList data structure was used to store Node objects, so that there is no limit on the size of tree which can be generated
@@ -298,7 +298,7 @@ class binaryTree {
             deTransform();
         }
     }
-    //this funcmstion performs a translation and a transformation based on values calculated elsewhere
+    //this function performs a translation and a transformation based on values calculated elsewhere
     void transform() {
         translate(-xFactor, 0);
         scale(scale);

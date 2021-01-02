@@ -6,16 +6,20 @@ This was to make implementing checkXIntersection easier and more efficient, as t
 given number was reduced from O(n) to O(1). In addition, modifying induvidual nodes was also far easier to do.
 An arrayList data structure was used to store Node objects, so that there is no limit on the size of tree which can be generated
 */
+import java.util.*;
 class binaryTree {
     int size, maxDepth;
     nodeArrayList nodeArrayList;
     nodeArrayList searchRoute;
     boolean animatingSearchMotion, notAdding;
+    List<Integer> modifiedXCoordinates;
+    HashSet<Integer> pointsSet;
     //The object contstructor intitalises the appropriate variables for later use
     binaryTree() {
         size = 0;
         nodeArrayList = new nodeArrayList();
         animatingSearchMotion = false;
+        pointsSet = new HashSet<Integer>();
     }
     //This function searches for a value in the tree, and then starts an animation showing the search-path took
     void search(int key) {
@@ -65,6 +69,7 @@ class binaryTree {
         if (size == 0) {
             maxDepth = 0;
             this.nodeArrayList.add(new Node((width/2), 90, key, false, 0));
+            this.pointsSet.add(width/2);
             animatingSearchMotion = true;
             size++;
             return;
@@ -119,20 +124,14 @@ class binaryTree {
         }
     }
     //Thiis function is responsible for checking for intersections on the Y-axis, and then changing the co-ordinates of the required nodes if an intersection is present
-    void checkXIntersection(int xPos, int nN) {
-        if (nN == 0) {//not needed?
+    void checkXIntersection(int xPos, int n) {
+        if (!pointsSet.contains(xPos)) {
+            pointsSet.add(xPos);
             return;
         }
-        ///Use a linear-search to try and check if a Y-intersection is present
-        for (int i = 0; i < size; i++) {
-            if (this.nodeArrayList.array[i] != null && this.nodeArrayList.array[i].xPos == xPos && i != nN) {
-                break;//If intersection is detected, exit loop and go down
-            } else if (i == size-1) {
-                return;//If search unsuccessful, exit function as no intersection is present
-            }
-        }
-        //Travel up the node with the nodeNumnber 'nN', until a node with a different 'directionFrom' variable is found
-        int z = nN;
+        modifiedXCoordinates = new ArrayList<Integer>();
+        //Travel up the node with the nodeNumnber 'n', until a node with a different 'directionFrom' variable is found
+        int z = n;
         boolean d1 = this.nodeArrayList.array[z].directionFrom, d2 = d1;
         while (d1 == d2) {
             d1 = this.nodeArrayList.array[z].directionFrom;
@@ -154,12 +153,16 @@ class binaryTree {
             case2(this.nodeArrayList.array[z].parentNodeNumber, direction, this.nodeArrayList.array[z].directionFrom); //node above is passed through
         }
         //exit function
+        for (int i = 0; i < modifiedXCoordinates.size(); i++) {
+            pointsSet.add(modifiedXCoordinates.get(i));
+        }
         return;
     }
     //This function shifts a given node outwards, and then updates it's previous x position
-    void shiftNodeOutwards(int n, int d) {//update minX, maxX
+    void shiftNodeOutwards(int n, int d) {
         this.nodeArrayList.array[n].previousXPos = this.nodeArrayList.array[n].xPos;
         this.nodeArrayList.array[n].xPos = this.nodeArrayList.array[n].xPos + (defaultScale * d);
+        modifiedXCoordinates.add(this.nodeArrayList.array[n].xPos);
     }
 
     //This function is designed to traverse an the node of node number n, through recursion. All visited nodes are shifted outwards
